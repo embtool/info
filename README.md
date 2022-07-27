@@ -47,7 +47,7 @@ Output:
 
 ```json
 {
-  "git_commit_describe": "AAAAAAA-dirty",
+  "git_commit_describe": "TAG-N-gAAAAAAA-dirty",
   "git_commit_hash": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-dirty",
   "build_type": "Debug",
   "build_user": "user@host",
@@ -56,37 +56,14 @@ Output:
 }
 ```
 
-## Using: add_subdirectory()
-
-Copy this repository in your project, add the subdirectory, then link
-to your executable or library. You can also set the Git directory where
-to get the commit.
-
-```console
-$ git clone https://github.com/embtool/info
-```
-
-```cmake
-# CMakeLists.txt
-cmake_minimum_required(VERSION 3.10)
-project(info_test_add_submodule VERSION 1.0)
-
-# Set Git directory (optional)
-set(INFO_GIT_DIR "${PROJECT_SOURCE_DIR}")
-
-# Add Info's subdirectory
-add_subdirectory(info)
-
-# Link Info to an executable or library
-add_executable(main main.c)
-target_link_libraries(main PRIVATE info)
-```
-
 ## Using: External Project
 
-Configure this repository as an external project, then link
-to your executable or library. You can also set the Git directory where
-to get the commit.
+This example is available in example/.
+CMake will download the repository for you.
+
+1. Configure this repository as an external project, then link to your
+   executable or library. You can also set the Git directory where to
+   get the commit hash.
 
 ```cmake
 # CMakeLists.txt
@@ -104,6 +81,37 @@ FetchContent_Declare(
   GIT_TAG main # or use a tag, eg. v1.0
 )
 FetchContent_MakeAvailable(info)
+
+# Link Info to an executable or library
+add_executable(main main.c)
+target_link_libraries(main PRIVATE info)
+```
+
+## Using: add_subdirectory()
+
+This example is similar to the previous.
+You need to download the source manually.
+
+1. Download the repository.
+
+```console
+$ git clone https://github.com/embtool/info
+```
+
+2. On CMakeLists.txt add the subdirectory, then link to your executable
+   or library. You can also set the Git directory where to get the
+   commit hash.
+
+```cmake
+# CMakeLists.txt
+cmake_minimum_required(VERSION 3.10)
+project(info_test_add_submodule VERSION 1.0)
+
+# Set Git directory (optional)
+set(INFO_GIT_DIR "${PROJECT_SOURCE_DIR}")
+
+# Add Info's subdirectory
+add_subdirectory(info)
 
 # Link Info to an executable or library
 add_executable(main main.c)
