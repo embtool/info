@@ -3,15 +3,14 @@
 Set-up and build:
 
 ```console
-$ mkdir -p build
-$ cmake -B build
-$ cmake --build build
+$ cmake -B build/
+$ cmake --build build/
 $ ./build/main
 ```
 
 Re-build:
 
 ```console
-$ cmake --build build
+$ cmake --build build/
 $ ./build/main
 ```

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(info_test_add_submodule VERSION 1.0)
+project(info_example VERSION 1.0)
 
 # Set Git directory (optional)
 set(INFO_GIT_DIR "${PROJECT_SOURCE_DIR}")

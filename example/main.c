@@ -1,4 +1,3 @@
-/* main.c */
 #include "info.h"
 #include <stdio.h>
 
