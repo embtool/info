@@ -131,7 +131,7 @@ PenaltyIndentedWhitespace: 0
 PointerAlignment: Right
 PPIndentWidth: -1
 ReferenceAlignment: Pointer
-ReflowComments: true
+ReflowComments: false
 ShortNamespaceLines: 1
 SortIncludes: CaseInsensitive
 SortJavaStaticImport: Before
